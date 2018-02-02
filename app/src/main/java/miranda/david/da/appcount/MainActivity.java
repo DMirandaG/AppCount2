@@ -44,7 +44,11 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View view) {
                 Log.d ("MainActivity", "Boton pulsado");
-                contador--;
+                if(contador == 0 ){
+
+                } else{
+                    contador--;
+                }
                 pantalla.setText("" + contador);
             }
         });
