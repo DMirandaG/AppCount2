@@ -57,14 +57,14 @@ public class MainActivityTest03 {
         button2.perform(click());
 
         ViewInteraction textView = onView(
-                allOf(withId(R.id.textView), withText("-2"),
+                allOf(withId(R.id.textView), withText("0"),
                         childAtPosition(
                                 childAtPosition(
                                         IsInstanceOf.<View>instanceOf(android.view.ViewGroup.class),
                                         0),
                                 0),
                         isDisplayed()));
-        textView.check(matches(withText("-2")));
+        textView.check(matches(withText("0")));
 
     }
 
