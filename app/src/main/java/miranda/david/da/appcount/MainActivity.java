@@ -8,12 +8,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
+    protected final String TAG = this.getClass().getSimpleName();
 
     private TextView pantalla;
     private Button boton1;
-    private int contador;
     private Button boton2;
-
+    private Presenter myPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,34 +22,36 @@ public class MainActivity extends Activity {
         Log.d("MainActivity", "Arrancando mi App");
 
         pantalla = findViewById(R.id.textView);
-        contador = 0;
-        pantalla.setText("" + contador);
-
         boton1 = findViewById(R.id.button);
-        //boton1.setOnClickListener(new ButtonListener());
 
+        myPresenter = new Presenter();
+        pantalla.setText("" + myPresenter.getContador());
+
+
+        // Configurado el observador con una clase anonima
         boton1.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
                 Log.d ("MainActivity", "Boton pulsado");
-                contador++;
-                pantalla.setText("" + contador);
+
+                myPresenter.botonMasPulsado();
+                pantalla.setText("" + myPresenter.getContador());
             }
         });
 
         boton2 = findViewById(R.id.boton2);
-
         boton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.d ("MainActivity", "Boton pulsado");
-                if(contador == 0 ){
+                myPresenter.botonMenosPulsado();
+                //if(myPresenter.getContador() == 0 ){
 
-                } else{
-                    contador--;
-                }
-                pantalla.setText("" + contador);
+               // } else{
+                    //contador--;
+               // }
+                pantalla.setText("" + myPresenter.getContador());
             }
         });
 
