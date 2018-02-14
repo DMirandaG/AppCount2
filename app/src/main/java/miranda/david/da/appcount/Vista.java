@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class MainActivity extends Activity {
+public class Vista extends Activity {
     protected final String TAG = this.getClass().getSimpleName();
 
     private TextView pantalla;
@@ -19,7 +19,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.d("MainActivity", "Arrancando mi App");
+        Log.d("Vista", "Arrancando mi App");
 
         pantalla = findViewById(R.id.textView);
         boton1 = findViewById(R.id.button);
@@ -33,7 +33,7 @@ public class MainActivity extends Activity {
 
             @Override
             public void onClick(View view) {
-                Log.d ("MainActivity", "Boton pulsado");
+                Log.d ("Vista", "Boton pulsado");
 
                 myPresenter.botonMasPulsado();
                 pantalla.setText("" + myPresenter.getContador());
@@ -44,13 +44,8 @@ public class MainActivity extends Activity {
         boton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d ("MainActivity", "Boton pulsado");
+                Log.d ("Vista", "Boton pulsado");
                 myPresenter.botonMenosPulsado();
-                //if(myPresenter.getContador() == 0 ){
-
-               // } else{
-                    //contador--;
-               // }
                 pantalla.setText("" + myPresenter.getContador());
             }
         });
