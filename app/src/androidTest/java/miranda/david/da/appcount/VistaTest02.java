@@ -18,30 +18,53 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static android.support.test.espresso.matcher.ViewMatchers.withClassName;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.allOf;
+import static org.hamcrest.Matchers.is;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
-public class MainActivityTest01 {
+public class VistaTest02 {
 
     @Rule
-    public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
+    public ActivityTestRule<Vista> mActivityTestRule = new ActivityTestRule<>(Vista.class);
 
     @Test
-    public void mainActivityTest01() {
+    public void mainActivityTest02() {
+        ViewInteraction button = onView(
+                allOf(withId(R.id.button), withText("+"),
+                        childAtPosition(
+                                childAtPosition(
+                                        withClassName(is("android.support.constraint.ConstraintLayout")),
+                                        0),
+                                1),
+                        isDisplayed()));
+        button.perform(click());
+
+        ViewInteraction button2 = onView(
+                allOf(withId(R.id.button), withText("+"),
+                        childAtPosition(
+                                childAtPosition(
+                                        withClassName(is("android.support.constraint.ConstraintLayout")),
+                                        0),
+                                1),
+                        isDisplayed()));
+        button2.perform(click());
+
         ViewInteraction textView = onView(
-                allOf(withId(R.id.textView), withText("0"),
+                allOf(withId(R.id.textView), withText("2"),
                         childAtPosition(
                                 childAtPosition(
                                         IsInstanceOf.<View>instanceOf(android.view.ViewGroup.class),
                                         0),
                                 0),
                         isDisplayed()));
-        textView.check(matches(withText("0")));
+        textView.check(matches(withText("2")));
 
     }
 
