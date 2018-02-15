@@ -1,7 +1,11 @@
-package miranda.david.da.appcount;
+package miranda.david.da.appcount.Mediador;
 
 import android.app.Application;
 import android.util.Log;
+
+import miranda.david.da.appcount.MVP.Model;
+import miranda.david.da.appcount.MVP.Presenter;
+import miranda.david.da.appcount.MVP.Vista;
 
 /**
  * Created by David on 09/02/2018.

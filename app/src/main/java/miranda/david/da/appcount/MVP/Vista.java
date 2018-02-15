@@ -1,4 +1,4 @@
-package miranda.david.da.appcount;
+package miranda.david.da.appcount.MVP;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import miranda.david.da.appcount.R;
 
 public class Vista extends Activity {
     protected final String TAG = this.getClass().getSimpleName();
