@@ -9,7 +9,8 @@ import android.widget.TextView;
 
 import miranda.david.da.appcount.R;
 
-public class Vista extends Activity {
+public class Vista extends Activity implements PresenterInterface.PresenterToView{
+
     protected final String TAG = this.getClass().getSimpleName();
 
     private TextView pantalla;
@@ -53,5 +54,10 @@ public class Vista extends Activity {
         });
 
 
+    }
+
+    @Override
+    public void showText() {
+        pantalla.setVisibility(View.VISIBLE);
     }
 }

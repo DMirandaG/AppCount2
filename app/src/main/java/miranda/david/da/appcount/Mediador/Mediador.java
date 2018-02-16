@@ -15,7 +15,6 @@ public class Mediador extends Application{
 
     protected final String TAG = this.getClass().getSimpleName();
 
-
     private Presenter myPresenter;
     private Model myModel;
     private Vista myVista;
@@ -24,7 +23,6 @@ public class Mediador extends Application{
     public void onCreate(){
         super.onCreate();
         Log.d(TAG, "calling onCreate()");
-
         Log.d(TAG, "calling creatingInitialState()");
 
         myVista= new Vista();

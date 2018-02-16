@@ -4,7 +4,8 @@ package miranda.david.da.appcount.MVP;
  * Created by David on 09/02/2018.
  */
 
-public class Presenter {
+public class Presenter implements PresenterInterface.ViewToPresenter, PresenterInterface.ModelToPresenter{
+
     protected final String TAG = this.getClass().getSimpleName();
 
     private Model myModel;
@@ -28,4 +29,6 @@ public class Presenter {
 
         myModel.decrement();
     }
+
+
 }
