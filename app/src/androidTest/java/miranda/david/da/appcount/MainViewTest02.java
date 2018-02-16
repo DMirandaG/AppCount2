@@ -17,7 +17,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import miranda.david.da.appcount.MVP.Vista;
+import miranda.david.da.appcount.mainscreen.MainView;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
@@ -31,10 +31,10 @@ import static org.hamcrest.Matchers.is;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
-public class VistaTest02 {
+public class MainViewTest02 {
 
     @Rule
-    public ActivityTestRule<Vista> mActivityTestRule = new ActivityTestRule<>(Vista.class);
+    public ActivityTestRule<MainView> mActivityTestRule = new ActivityTestRule<>(MainView.class);
 
     @Test
     public void mainActivityTest02() {
