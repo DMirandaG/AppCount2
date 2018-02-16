@@ -1,4 +1,4 @@
-package miranda.david.da.appcount.Mediador;
+package miranda.david.da.appcount.MediadorApp;
 
 import android.app.Application;
 import android.util.Log;
