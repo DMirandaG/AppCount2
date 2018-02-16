@@ -1,4 +1,4 @@
-package miranda.david.da.appcount.Mediador;
+package miranda.david.da.appcount.MediadorApp;
 
 /**
  * Created by David on 15/02/2018.
