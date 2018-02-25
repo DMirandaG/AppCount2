@@ -1,14 +1,16 @@
 package miranda.david.da.appcount.mainscreen;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import miranda.david.da.appcount.R;
-import miranda.david.da.appcount.MediatorApp;
+import miranda.david.da.appcount.Mediator;
 
 public class MainView extends Activity implements Main.PresenterToView {
 
@@ -17,7 +19,6 @@ public class MainView extends Activity implements Main.PresenterToView {
     private TextView screen;
     private Button button1;
     private Button button2;
-    //private MainPresenter myPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +29,10 @@ public class MainView extends Activity implements Main.PresenterToView {
         screen = findViewById(R.id.textView);
         button1 = findViewById(R.id.button);
 
-        final MediatorApp mediator = (MediatorApp) getApplication();
-        final MainPresenter myPresenter = mediator.getPresenter(this);
+        final Mediator mediator = (Mediator) getApplication();
+        final Main.ViewToPresenter myPresenter = mediator.getPresenter(this);
+
         screen.setText(mediator.getPresenter(this).getTextToDisplay());
-
-
         // Configurado el observador con una clase anonima
         button1.setOnClickListener(new View.OnClickListener() {
 
@@ -55,6 +55,15 @@ public class MainView extends Activity implements Main.PresenterToView {
         });
 
 
+    }
+
+    @Override
+    public void displayShortMessage(String text) {
+        Context context = getApplicationContext();
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
     }
 
 

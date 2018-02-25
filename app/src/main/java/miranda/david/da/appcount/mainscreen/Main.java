@@ -9,13 +9,13 @@ public interface Main {
 
     interface PresenterToModel {
         void increment();
-
         void decrement();
-
         int getCounter();
+        void reset();
     }
 
     interface PresenterToView {
+        void displayShortMessage(String text);
     }
 
     interface ViewToPresenter {

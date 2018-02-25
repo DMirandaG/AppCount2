@@ -1,18 +1,19 @@
 package miranda.david.da.appcount.mainscreen;
 
 
-import miranda.david.da.appcount.MediatorApp;
+import miranda.david.da.appcount.Mediator;
 
 public class MainPresenter implements Main.ViewToPresenter, Main.ModelToPresenter {
 
     protected final String TAG = this.getClass().getSimpleName();
 
-    private MediatorApp myMediator;
-    private MainModel myModel;
-    private MainView myView;
+    private Mediator myMediator;
+    private Main.PresenterToModel myModel;
+    private Main.PresenterToView myView;
 
-    public MainPresenter(MediatorApp mediator, MainModel model, MainView view){
+    public MainPresenter(Mediator mediator, Main.PresenterToModel model, Main.PresenterToView view){
 
+        mediator.log_d(TAG, "starting MainPresenter");
         myMediator = mediator;
         myModel = model;
         myView = view;
@@ -28,6 +29,12 @@ public class MainPresenter implements Main.ViewToPresenter, Main.ModelToPresente
     public void buttonPlusPressed(){
 
         myModel.increment();
+
+        if (myModel.getCounter() % 3 == 0) {
+            myView.displayShortMessage("Congrats!!! You reached " + myModel.getCounter());
+
+            ((Mediator.navigation) myMediator).openWebPage("http://www.ulpgc.es");
+        }
     }
 
     @Override
