@@ -12,6 +12,7 @@ public interface Main {
         void decrement();
         int getCounter();
         void reset();
+
     }
 
     interface PresenterToView {
