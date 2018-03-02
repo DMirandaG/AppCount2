@@ -59,7 +59,7 @@ public class MainViewTest02 {
         button2.perform(click());
 
         ViewInteraction textView = onView(
-                allOf(withId(R.id.textView), withText("2"),
+                allOf(withId(R.id.textView),
                         childAtPosition(
                                 childAtPosition(
                                         IsInstanceOf.<View>instanceOf(android.view.ViewGroup.class),

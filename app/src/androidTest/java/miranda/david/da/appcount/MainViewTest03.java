@@ -36,37 +36,65 @@ public class MainViewTest03 {
     @Rule
     public ActivityTestRule<MainView> mActivityTestRule = new ActivityTestRule<>(MainView.class);
 
+    private void before() {
+        Mediator mediator =
+                (Mediator) mActivityTestRule.getActivity().getApplication();
+        mediator.resetApp();
+    }
+
     @Test
     public void mainActivityTest03() {
+        before();
+
         ViewInteraction button = onView(
-                allOf(withId(R.id.boton2), withText("-"),
+                allOf(withId(R.id.button), withText("+"),
                         childAtPosition(
                                 childAtPosition(
                                         withClassName(is("android.support.constraint.ConstraintLayout")),
                                         0),
-                                2),
+                                1),
                         isDisplayed()));
         button.perform(click());
 
         ViewInteraction button2 = onView(
-                allOf(withId(R.id.boton2), withText("-"),
+                allOf(withId(R.id.button), withText("+"),
                         childAtPosition(
                                 childAtPosition(
                                         withClassName(is("android.support.constraint.ConstraintLayout")),
                                         0),
-                                2),
+                                1),
                         isDisplayed()));
         button2.perform(click());
 
+        ViewInteraction button3 = onView(
+                allOf(withId(R.id.button), withText("+"),
+                        childAtPosition(
+                                childAtPosition(
+                                        withClassName(is("android.support.constraint.ConstraintLayout")),
+                                        0),
+                                1),
+                        isDisplayed()));
+        button3.perform(click());
+
+        ViewInteraction button4 = onView(
+                allOf(withId(R.id.button), withText("+"),
+                        childAtPosition(
+                                childAtPosition(
+                                        withClassName(is("android.support.constraint.ConstraintLayout")),
+                                        0),
+                                1),
+                        isDisplayed()));
+        button4.perform(click());
+
         ViewInteraction textView = onView(
-                allOf(withId(R.id.textView), withText("0"),
+                allOf(withId(R.id.textView),
                         childAtPosition(
                                 childAtPosition(
                                         IsInstanceOf.<View>instanceOf(android.view.ViewGroup.class),
                                         0),
                                 0),
                         isDisplayed()));
-        textView.check(matches(withText("0")));
+        textView.check(matches(withText("4")));
 
     }
 

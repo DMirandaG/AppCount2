@@ -36,7 +36,7 @@ public class MainViewTest01 {
     @Test
     public void mainActivityTest01() {
         ViewInteraction textView = onView(
-                allOf(withId(R.id.textView), withText("0"),
+                allOf(withId(R.id.textView),
                         childAtPosition(
                                 childAtPosition(
                                         IsInstanceOf.<View>instanceOf(android.view.ViewGroup.class),
