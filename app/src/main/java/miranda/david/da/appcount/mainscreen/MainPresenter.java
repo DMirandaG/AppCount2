@@ -37,6 +37,7 @@ public class MainPresenter implements Main.ViewToPresenter, Main.ModelToPresente
         }
     }
 
+    // TODO: 09/03/2018 Corregir y adaptar
     @Override
     public void buttonMinusPressed(){
 
