@@ -14,6 +14,10 @@ public class MainModel implements Main.PresenterToModel {
         reset();
     }
 
+    public MainModel(){
+        reset();
+    }
+
     @Override
     public void increment(){
 
